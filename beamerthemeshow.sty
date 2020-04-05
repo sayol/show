@@ -1,0 +1,61 @@
+%\ProvidesPackage{beamerthemeKhmer}
+\mode<presentation>
+%
+\hypersetup{pdfpagemode=FullScreen}
+%
+\useinnertheme{rounded}% build-in theme
+\useoutertheme{infolines}% build-in theme
+\usefonttheme{show}% self-designed theme
+\usecolortheme{show}% modified theme
+\useinnertheme{circle}% modified theme
+%
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+\newif\ifbeamer@toc
+\beamer@tocfalse
+%
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\DeclareOptionBeamer{toc}{\beamer@toctrue}
+\ProcessOptionsBeamer
+%
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+\ifbeamer@toc
+\AtBeginSection[] % Do nothing for \section*
+{
+    \begin{frame}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+\fi
+%
+\setbeamercovered{transparent}
+%
+\setbeamertemplate{theorems}[numbered]
+%\setbeamertemplate{frametitle}[default][left]%left,right,center
+%
+\setlength{\leftmargini}{2.75ex}
+\setlength{\leftmarginii}{2.75ex}
+\setlength{\leftmarginiii}{2.75ex}
+\addtobeamertemplate{frametitle}{
+    \def\insertframetitle{\thesection.~\insertsection}}{}
+\addtobeamertemplate{frametitle}{
+    \let\insertframesubtitle\insertsubsectionhead}{}
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+%
+\AtBeginPart{%
+\beamer@tocsectionnumber=0\relax
+\setcounter{section}{0}
+\setcounter{theorem}{0}}
+%
+\RequirePackage{background}
+\backgroundsetup{
+    placement=center,
+    scale=1.25,
+    contents={Copyright Materials},
+    opacity=.75,
+    angle=35
+}
+\setbeamertemplate{background}{\BgMaterial}
+%
+\mode<all>
