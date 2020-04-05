@@ -1,0 +1,121 @@
+\documentclass[serif,handout,t]{beamer}
+\usetheme[toc]{show}
+\colorlet{show}{green!50!black}
+\title[Show Theme]{Introduction to Show Beamer Theme}
+\author[Say]{OL Say}
+\date[04/05/20]{April 05, 2020}
+\institute[TEC]{Teacher Education College}
+\begin{document}
+    \section{Greeting}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    \section{TD2: Exc19}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{18}
+            \item Let $ X $ be the number of working pumps befor the third non-working pump is found. Then, $ X\sim\operatorname{Neg}(r=3,p=0.2). $\\
+            Let $ T $ be the total time (in minute) for testing and repairing the pumps. Then $ T=10X+3(30)=10X+90. $ Thus,
+            \begin{align*}
+            E(T) &=E(10X+90)=10E(X)+90\\
+            &=10\left( \frac{r(1-p)}{p} \right)+90
+            =10\left( \frac{3(0.8)}{0.2} \right)+90
+            =\cdots\\
+            V(T) &=V(10X+90)=10^{2}V(X)\\
+            &=100\times \frac{r(1-p)}{p^{2}}
+            =100\left( \frac{3(0.8)}{(0.2)^{2}} \right)=\cdots
+            \end{align*}
+        \end{enumerate}
+    \end{frame}
+    \section{TD2: Exc23}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{22}
+            \item Let $ X $ be the number of failed diodes among the 200 diodes. Then, $ X\sim\operatorname{Bin}(n=200,p=0.01) $
+            \begin{enumerate}[a]
+                \item $ E(X)=np=(200)(0.01)=2 $ and $ \sigma_{X}=\sqrt{npq}=\sqrt{(200)(0.01)(0.99)}=\cdots $
+                \item Since $ n $ is large, $ p $ is small and $ np=2<5 $ then $ X $ is approximately Poisson distributed. That is $ X\sim\operatorname{Poi}(\lambda=\mu_{X}=2). $
+                \begin{align*}
+                P(X\geq 4) &=1-P(X<4)\approx 1-\sum_{x=0}^{3} \frac{e^{-2}2^{x}}{x!}=\cdots
+                \end{align*}
+                \item Let $ Y $ be the number of boards among the five selected boards that works. Then, $ Y\sim\operatorname{Bin}(n=5,p=P(X=0)). $ Since
+                \begin{align*}
+                p &=P(X=0)\approx \frac{e^{-2}2^{0}}{0!}=e^{-2}\approx 0.1353\\
+                q &=1-p=1-e^{-2}\approx 0.8647
+                \end{align*}
+                Then, $ P(Y=y)=\binom{5}{y}(0.1353)^{y}(0.8647)^{5-y} $ and
+                \begin{align*}
+                P(Y\geq 4) &=P(Y=4)+P(Y=5)=\cdots
+                \end{align*}
+            \end{enumerate}
+        \end{enumerate}
+    \end{frame}
+    \section{TD2: Exc24}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{23}
+            \item The set of possible values of $ X $ is $ D=\left\{ x\in\mathbb{N}:x\geq 0 \right\} $ and $ a>0. $
+            \begin{align*}
+            \sum_{x\geq 0} xP(X=x) &=\sum_{0\leq x<a} xP(X=x)+\sum_{x\geq a}xP(X=x)\\
+            &\geq \sum_{x\geq a}xP(X=x)
+            \end{align*}
+            But $ \sum_{x\geq a}xP(X=x)\geq \sum_{x\geq a}aP(X=x) $ then
+            \begin{align*}
+            \sum_{x\geq 0} xP(X=x) &\geq \sum_{x\geq a}aP(X=x)\\
+            E(X) &\geq aP(X\geq a)
+            \end{align*}\\
+            Therefore, $ P(X\geq a)\leq \frac{E(X)}{a}. $
+        \end{enumerate}
+    \end{frame}
+    \section{TD2: Exc25}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{24}
+            \item We have $ a>0. $
+            \begin{align*}
+            P(|X-E(X)|\geq a) &=P([X-E(X)]^{2}\geq a^{2})\\
+            &\leq \frac{E([X-E(X)]^{2})}{a^{2}}\\
+            &=\frac{E[(X-\mu_{X})^{2}]}{a^{2}}\\
+            &=\frac{V(X)}{a^{2}}
+            \end{align*}
+            Thus, $ P(|X-E(X)|\geq a)\leq \frac{V(X)}{a^{2}}. $
+        \end{enumerate}
+    \end{frame}
+    \section{TD2: Exc26}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{25}
+            \item We know that $ Y $ is the number of customers per day at a sales counter. The distribution of $ Y $ is not known.
+            \begin{align*}
+            P(16<Y<24) &=P(-4<Y-20<4)\\
+            &=P(|Y-20|<4)\\
+            &=1-P(|Y-20|\geq 4)\\
+            &\geq 1-\frac{V(Y)}{4^{2}}\\
+            &=1-\frac{2^{2}}{4^{2}}=0.75
+            \end{align*}
+            Thus, we infer that $ P(16<Y<24)\geq 0.75. $
+        \end{enumerate}
+    \end{frame}
+    \section{TD2: Exc27}
+    \begin{frame}[allowframebreaks]
+        \begin{enumerate}
+            \setcounter{enumi}{26}
+            \item We know that $ X $ is random with $ \mu_{X}=11 $ and $ V(X)=9. $
+            \begin{enumerate}[a]
+                \item Find a lower bound for $ P(6<X<16) $
+                \begin{align*}
+                P(6<X<16) &=P(-5<X-11<5)=P(|X-\mu_{X}|<5)\\
+                &=1-P(|X-\mu_{X}|\geq 5)\geq 1-\frac{V(X)}{5^{2}}\\
+                &=1-\frac{9}{5^{2}}=\frac{16}{25}
+                \end{align*}
+                Thus, a lower bound of $ P(6<X<16) $ is $ \frac{16}{25}. $
+                \item Find value of $ C $ such that $ P(|X-11|\geq C)\leq 0.09. $ We know that
+                \begin{align*}
+                P(|X-11|\geq C)\leq \frac{V(X)}{C^{2}}=\left( \frac{3}{C} \right)^{2}
+                \end{align*}
+                To have $ P(|X-11|\geq C)\leq 0.09, $ we let $ \left( \frac{3}{C} \right)^{2}\leq 0.09. $\\
+                That is $ C\geq 10. $
+            \end{enumerate}
+        \end{enumerate}
+    \end{frame}
+\end{document}
