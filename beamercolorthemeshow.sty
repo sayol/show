@@ -1,0 +1,56 @@
+\mode<presentation>
+%TODO: Main color
+\colorlet{show}{violet}% violet,purple,blue,black
+\setbeamercolor{author}{fg=show}
+\setbeamercolor{institute}{fg=show}
+\setbeamercolor{date}{fg=show}
+%TODO: Change math style to display style with blue color
+\everymath={\expandafter\color{show!50!black}\displaystyle}
+%TODO: Text color
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{alerted text}{fg=blue!50!black}
+\setbeamercolor*{example text}{fg=black}
+\setbeamercolor*{structure}{fg=show}
+
+\providecommand*{\beamer@bftext@only}{%
+  \relax
+  \ifmmode
+    \expandafter\beamer@bftext@warning
+  \else
+    \expandafter\bfseries
+  \fi
+}
+\providecommand*{\beamer@bftext@warning}{%
+  \ClassWarning{beamer}
+    {Cannot use bold for alerted text in math mode}%
+}
+
+\setbeamerfont{alerted text}{series=\beamer@bftext@only}
+
+\setbeamercolor*{palette primary}{fg=white,bg=show!60}
+\setbeamercolor*{palette secondary}{fg=white,bg=show!80}
+\setbeamercolor*{palette tertiary}{fg=white,bg=show}
+\setbeamercolor*{palette quaternary}{fg=white,bg=red}
+
+\setbeamercolor{sidebar}{bg=show!20}
+
+\setbeamercolor*{palette sidebar primary}{fg=show}
+\setbeamercolor*{palette sidebar secondary}{fg=show}
+\setbeamercolor*{palette sidebar tertiary}{fg=show}
+\setbeamercolor*{palette sidebar quaternary}{fg=show}
+
+\setbeamercolor*{item projected}{fg=white,bg=show}
+
+\setbeamercolor*{titlelike}{parent=palette secondary}
+\setbeamercolor*{block title}{fg=white,bg=show}
+\setbeamercolor*{block title alerted}{fg=white,bg=show}
+\setbeamercolor*{block title example}{fg=white,bg=show}
+
+\setbeamercolor*{block body}{fg=black,bg=show!20}
+\setbeamercolor*{block body alerted}{fg=blue,bg=show!20}
+\setbeamercolor*{block body example}{fg=black,bg=show!20}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode<all>
